@@ -31,6 +31,18 @@ class Employee:
             return False
         return True
 
+    def __repr__(self):
+        return "Employee('{}', '{}', '{}')".format(self.first, self.last, self.pay)
+
+    def __str__(self):
+        return '{} - {}'.format(self.fullname(), self.email)
+
+    def __add__(self, other):
+        return self.pay + other.pay
+
+    def __len__(self):
+        return len(self.fullname())
+
 class Developer(Employee):
     raise_amount = 1.10
 
@@ -59,22 +71,36 @@ class Manager(Employee):
         for emp in self.employees:
             print('-->', emp.fullname())
 
+emp_1 = Employee('Richard', 'Wasonga', 50000)
+emp_2 = Employee('Test', 'User', 60000)
 
-dev_1 = Developer('Richard', 'Wasonga', 50000, 'Python')
-dev_2 = Developer('Test', 'Employee', 60000, 'Java ')
+print(len(emp_1))
 
-mgr_1 = Manager('Sue', 'Smith', 90000, [dev_1])
+# print(emp_1 + emp_2)
 
-print(mgr_1.email)
+# print(emp_1)
 
-mgr_1.add_emp(dev_2)
-mgr_1.remove_emp(dev_1)
+# print(repr(emp_1))
+# print(str(emp_1))
 
-mgr_1.print_emps()
+# print(emp_1.__repr__())
+# print(emp_1.__str__())
+
+# dev_1 = Developer('Richard', 'Wasonga', 50000, 'Python')
+# dev_2 = Developer('Test', 'Employee', 60000, 'Java ')
+
+# mgr_1 = Manager('Sue', 'Smith', 90000, [dev_1])
+
+# print(mgr_1.email)
+
+# mgr_1.add_emp(dev_2)
+# mgr_1.remove_emp(dev_1)
+
+# mgr_1.print_emps()
 
 # There are these two built in functions in python to help us know if something is an insrance or subclass
-print(isinstance(mgr_1, Manager))
-print(issubclass(Developer, Employee))
+# print(isinstance(mgr_1, Manager))
+# print(issubclass(Developer, Employee))
   
 # print(help(Developer))
 
@@ -82,8 +108,7 @@ print(issubclass(Developer, Employee))
 # dev_1.apply_raise()
 # print(dev_1.pay)
 
-# emp_1 = Employee('Richard', 'Wasonga', 50000)
-# emp_2 = Employee('Test', 'User', 60000)
+
 
 # import datetime
 # my_date = datetime.date(2016, 7, 11)
