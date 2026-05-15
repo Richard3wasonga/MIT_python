@@ -7,11 +7,27 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-        self.email = first + '.' + last + '@company.com'
+        # self.email = first + '.' + last + '@company.com'
         Employee.num_of_emps += 1
-
+    
+    @property
+    def email(self):
+        return '{}.{}@company.com'.format(self.first, self.last)
+    @property
     def fullname(self):
         return f'{self.first} {self.last}'
+
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
@@ -74,7 +90,17 @@ class Manager(Employee):
 emp_1 = Employee('Richard', 'Wasonga', 50000)
 emp_2 = Employee('Test', 'User', 60000)
 
-print(len(emp_1))
+# emp_1.fullname = 'Timina Makena'
+
+# print(emp_1.first)
+# print(emp_1.email)
+# print(emp_1.fullname)
+
+# del emp_1.fullname
+
+# print(emp_1.first)
+
+# print(len(emp_1))
 
 # print(emp_1 + emp_2)
 
