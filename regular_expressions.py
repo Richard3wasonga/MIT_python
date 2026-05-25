@@ -27,7 +27,7 @@ Mr. T
 
 sentence = 'Start a sentence and then bring it to an end'
 
-pattern = re.compile(r'\.')
+pattern = re.compile(r'coreyms\.com')
 
 matches = pattern.finditer(text_to_search)
 
