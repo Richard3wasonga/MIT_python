@@ -27,9 +27,18 @@ Mr. T
 
 sentence = 'Start a sentence and then bring it to an end'
 
-pattern = re.compile(r'coreyms\.com')
+pattern = re.compile(r'[89]00[-.]\d\d\d[-.]\d\d\d\d')
 
 matches = pattern.finditer(text_to_search)
 
 for match in matches:
     print(match)
+
+# with open('regex/data.txt', 'r') as f:
+#     contents = f.read()
+
+#     matches = pattern.finditer(contents)
+
+#     for match in matches:
+#         print(match)
+
