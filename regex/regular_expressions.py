@@ -27,7 +27,7 @@ Mr. T
 
 sentence = 'Start a sentence and then bring it to an end'
 
-pattern = re.compile(r'[89]00[-.]\d\d\d[-.]\d\d\d\d')
+pattern = re.compile(r'(Mr|Ms|Mrs)\.?\s[A-Z]\w*')
 
 matches = pattern.finditer(text_to_search)
 
