@@ -27,12 +27,17 @@ Mr. T
 
 sentence = 'Start a sentence and then bring it to an end'
 
-pattern = re.compile(r'(Mr|Ms|Mrs)\.?\s[A-Z]\w*')
+pattern = re.compile(r'start', re.IGNORECASE)
 
-matches = pattern.finditer(text_to_search)
+# matches = pattern.finditer(text_to_search)
+# matches = pattern.findallr(text_to_search)
+# matches = pattern.match(sentence)
+matches = pattern.search(sentence)
 
-for match in matches:
-    print(match)
+print(matches)
+
+# for match in matches:
+#     print(match)
 
 # with open('regex/data.txt', 'r') as f:
 #     contents = f.read()
